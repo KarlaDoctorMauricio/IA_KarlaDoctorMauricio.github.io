@@ -4550,6 +4550,11 @@ input, select, textarea {
 			}
 
 		}
+		@media screen and (min-width: 981px) {
+			#navPanelToggle {
+				display: none;  /* Mostrar también en pantallas grandes */
+			}
+		}
 
 	#navPanel {
 		-moz-transform: translateX(20rem);
@@ -4655,13 +4660,17 @@ input, select, textarea {
 
 			}
 
-		@media screen and (max-width: 980px) {
-
-			#navPanel {
-				display: block;
+			@media screen and (max-width: 980px) {
+				body.is-navPanel-visible #wrapper {
+					opacity: 0.5;  /* Cuando el panel está visible, el fondo se vuelve semitransparente */
+				}
+			
+				body.is-navPanel-visible #navPanel {
+					transform: translateX(0);  /* Mueve el panel de su posición oculta a visible */
+					box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);  /* Añade sombra al panel */
+					visibility: visible;  /* Hace el panel visible */
+				}
 			}
-
-		}
 
 		@media screen and (max-width: 736px) {
 
